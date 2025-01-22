@@ -44,7 +44,7 @@ class Gaussian(object):
                 raise ValueError('sigma**2 should be greater than 0')
             pi = sigma ** -2
             tau = pi * mu
-        self.pi = pi
+        self.pi = max(pi, 1e-10)  # Ensure pi is never zero
         self.tau = tau
 
     @property
